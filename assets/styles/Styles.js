@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 
 const colors = {
 
-    primary: '#3b5998',
+    primary: '#0080FB',
     secondary: '#3b5998',
 
 };
