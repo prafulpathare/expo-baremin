@@ -16,10 +16,26 @@ export function UserProfile({ data, navigation }) {
     return (
         <View style={{ ...mainStyles.container }}>
            
+            <Text style={{
+                fontSize: 25,
+                padding: 20
+            }}>
+                Hi, Praful
+            </Text>
+
            <TouchableOpacity onPress={() => {
                navigation.navigate('Login')
-           }} >
-               <Text>Log Out</Text>
+           }}
+                style={{
+                    display: 'flex',
+                    backgroundColor: '#f00',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: 10,
+                    height: 40
+                }} 
+           >
+               <Text style={{ color: '#ffffff', fontWeight: 'bold' }}>Log Out</Text>
            </TouchableOpacity>
 
 

@@ -67,16 +67,15 @@ export function Login({ navigation, data }) {
 
 const styles = StyleSheet.create({
     textInput: {
-        backgroundColor: '#',
         marginBottom: 10,
         paddingHorizontal: 15,
         backgroundColor: '#e4e4e4',
-        borderWidth: 0,
+        borderWidth: 1,
         borderColor: '#ccc',
-        height: 40,
+        height: 50,
         borderRadius: 8,
-        fontSize: 16,
-        fontWeight: 'bold'
+        fontSize: 20,
+        // fontWeight: 'bold'
 
     }
 });

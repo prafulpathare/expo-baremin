@@ -8,9 +8,29 @@ import { styles as mainStyles } from '../assets/styles/Styles';
 
 export function Home({ navigation }) {
 
-    useEffect(() => {
+    const [data, setData] = useState({});
 
-    }, []);
+    useEffect(() => {
+        getFeeds();
+    }, [data]);
+
+    const getFeeds = () => {
+        fetch("https://api.npoint.io/6eb5a86919496a57f4c3", {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            // body: JSON.stringify({
+            //     firstParam: 'yourValue',
+            //     secondParam: 'yourOtherValue',
+            // }),
+        }).then((response) => response.json())
+        .then(json => setData(json['data']));
+
+
+
+    }
 
     return (
         <View style={{ ...mainStyles.container, }}>
@@ -31,34 +51,8 @@ export function Home({ navigation }) {
                 }}>What are you up to?</Text>
 
                 <FlatList
-                    data={[
-                        {
-                            header: 'dapibus dui. Praesent a ante posuere',
-                            description: ' Suspendisse eros massa, consequat quis diam quis, ultricies luctus ex',
-                            content: 'commodo metus vitae, convallis orci. Maecenas augue neque, fermentum et nunc accumsan',
-                        },
-                        {
-                            header: 'eleifend sed euismod tortor.Proin imperdiet ante',
-                            description: 'tristique feugiat imperdiet augue',
-                            content: 'Nam sit amet quam id ipsum tempus feugiat ac'
-                        },
-                        {
-                            header: 'efficitur diam. Nam a mi sit amet nisl consequat euismod',
-                            description: 'Donec et lectus lobortis, bibendum erat sed, ornare mi',
-                            content: 'Sed vel mauris est. Mauris sollicitudin'
-                        },
-                        {
-                            header: 'mi id blandit tristique, elit eros aliquet',
-                            description: 'ligula, id maximus nulla nunc ultrices metus',
-                            content: 'Sed vel mauris est. Mauris sollicitudin'
-                        },
-                        {
-                            header: 'Mauris posu ere id odio ac eleifend.id tortor venenatis',
-                            description: 'Nunc finibus finibus ex vitae laoreet',
-                            content: 'Nulla facilisi. Mauris ac euismod quam',
-                        },
-                    ]}
-                    renderItem={({ item }) => <Tile key={item+'-'} data={item} />}
+                    data={data}
+                    renderItem={({ item }) => <Tile key={item + '-'} data={item} />}
                     numColumns={3}
                     style={{
                         marginTop: 30
