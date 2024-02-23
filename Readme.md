@@ -10,7 +10,7 @@ boilarplate code for instant setup and development of expo based applications
 
 ### setup
 - install dependencies
-- ```sh
+  ```sh
   $ npm install
   ```
 - run on local
